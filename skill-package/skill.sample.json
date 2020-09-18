@@ -1,0 +1,30 @@
+{
+    "manifest": {
+      "publishingInformation": {
+        "locales": {
+          "de-DE": {
+            "summary": "Custom shopping list",
+            "examplePhrases": [
+              "Alexa öffne Meine Einkaufsliste",
+              "hallo",
+              "hilfe"
+            ],
+            "name": "Meine Einkaufsliste",
+            "description": "Custom shopping list"
+          }
+        },
+        "isAvailableWorldwide": true,
+        "testingInstructions": "Sample Testing Instructions.",
+        "category": "SHOPPING",
+        "distributionCountries": []
+      },
+      "apis": {
+        "custom": {
+          "endpoint": {
+            "uri": ""
+          }
+        }
+      },
+      "manifestVersion": "1.0"
+    }
+  }

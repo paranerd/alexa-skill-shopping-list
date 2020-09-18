@@ -1,0 +1,52 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "meine einkaufsliste",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AddItemIntent",
+                    "slots": [
+                        {
+                            "name": "item",
+                            "type": "AMAZON.Food"
+                        }
+                    ],
+                    "samples": [
+                        "{item}",
+                        "füge {item} hinzu"
+                    ]
+                },
+                {
+                    "name": "ListItemsIntent",
+                    "samples": [
+                        "was steht auf der liste",
+                        "was steht auf meiner liste",
+                        "was steht drauf"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+  }
+  
