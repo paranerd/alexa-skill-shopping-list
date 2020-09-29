@@ -18,7 +18,14 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
     ```
     nano ~/.aws/credentials
     ```
-7. Deploy
+
+7. Set up config
+
+    Rename config.sample.json to config.json
+
+    Enter API URL and API service token 
+
+8. Deploy
     ```
     ask deploy
     ```
