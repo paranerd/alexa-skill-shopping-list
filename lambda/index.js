@@ -1,9 +1,5 @@
 const Alexa = require('ask-sdk-core');
-const helpers = require('./util/helpers');
-const configHelper = require('./util/config-helper');
-
-// Load config
-const config = new configHelper();
+const api = require('./util/api');
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -32,7 +28,7 @@ const AddItemIntentHandler = {
 
         try {
             // Add item to list
-            await helpers.post(config.get('apiUrl'), "item", {name: item});
+            await api.create(item);
             speakOutput = 'Ich habe ' + item + ' hinzugefügt. Noch etwas?';
         } catch (err) {
             console.error("Error adding item");
@@ -56,13 +52,13 @@ const ListItemsIntentHandler = {
 
         try {
             // Get last 5 items from list
-            const items = await helpers.get(config.get('apiUrl'), "items", {limit: 5});
+            const items = await api.load();
 
             // Only get the names
             const list = items.map(item => item.name);
 
             // Output
-            speakOutput = 'Hier sind deine letzten fünf einträge: ' + list.join(', ');
+            speakOutput = 'Hier sind deine letzten einträge: ' + list.join(', ');
         } catch (err) {
             console.error(err);
         }
@@ -141,7 +137,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.log(`~~~~ Error handled: ${error.stack}`);
+        console.error(`~~~~ Error handled: ${error.stack}`);
         const speakOutput = `Sorry, I had trouble doing what you asked. Please try again.`;
 
         return handlerInput.responseBuilder
