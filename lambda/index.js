@@ -1,11 +1,13 @@
 const Alexa = require('ask-sdk-core');
 const api = require('./util/api');
+let wasOpened = false;
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
+        wasOpened = true;
         const speakOutput = 'Hier ist deine Einkaufsliste. Was möchstest du tun?';
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -20,8 +22,8 @@ const AddItemIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AddItemIntent';
     },
     async handle(handlerInput) {
-        // Fallback response
-        let speakOutput = "Sorry, da ist etwas schief gelaufen";
+        // Response container
+        let speakOutput;
 
         // Get item name from request
         const item = Alexa.getSlotValue(handlerInput.requestEnvelope, 'item');
@@ -29,15 +31,23 @@ const AddItemIntentHandler = {
         try {
             // Add item to list
             await api.create(item);
-            speakOutput = 'Ich habe ' + item + ' hinzugefügt. Noch etwas?';
+            speakOutput = 'Ich habe ' + item + ' hinzugefügt.';
+            speakOutput += wasOpened ? " Noch etwas?" : "";
         } catch (err) {
+            speakOutput = "Sorry, da ist etwas schief gelaufen";
             console.error("Error adding item");
         }
-        
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt('Noch etwas?')
-            .getResponse();
+
+        // Prepare response builder
+        let rb = handlerInput.responseBuilder
+                .speak(speakOutput);
+
+        // Ask for more if opened
+        if (wasOpened) {
+            rb = rb.reprompt('Noch etwas?');
+        }
+
+        return rb.getResponse();
     }
 };
 
@@ -106,6 +116,7 @@ const SessionEndedRequestHandler = {
     },
     handle(handlerInput) {
         // Any cleanup logic goes here.
+        wasOpened = false;
         return handlerInput.responseBuilder.getResponse();
     }
 };
