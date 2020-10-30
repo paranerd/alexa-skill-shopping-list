@@ -7,7 +7,7 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 3. [Create AWS credentials](https://developer.amazon.com/de-DE/docs/alexa/smapi/manage-credentials-with-ask-cli.html#create-aws-credentials)
 4. Install the Alexa Skill Kit
     ```
-    npm -i -g ask-cli
+    npm i -g ask-cli
     ```
 5. Configure the Alexa Skill Kit
     ```
