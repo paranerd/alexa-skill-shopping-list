@@ -36,6 +36,7 @@ const AddItemIntentHandler = {
         } catch (err) {
             speakOutput = "Sorry, da ist etwas schief gelaufen";
             console.error("Error adding item");
+            console.error(err);
         }
 
         // Prepare response builder
@@ -58,7 +59,7 @@ const ListItemsIntentHandler = {
     },
     async handle(handlerInput) {
         // Fallback response
-        let speakOutput = "Sorry, da ist etwas schief gelaufen";
+        let speakOutput;
 
         try {
             // Get last 5 items from list
@@ -70,6 +71,7 @@ const ListItemsIntentHandler = {
             // Output
             speakOutput = 'Hier sind deine letzten einträge: ' + list.join(', ');
         } catch (err) {
+            speakOutput = "Sorry, da ist etwas schief gelaufen";
             console.error(err);
         }
 
