@@ -1,5 +1,8 @@
+const path = require('path');
 const Alexa = require('ask-sdk-core');
+require('dotenv').config({path: path.join(__dirname, 'config', 'env')});
 const api = require('./util/api');
+
 let wasOpened = false;
 
 const LaunchRequestHandler = {

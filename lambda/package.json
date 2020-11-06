@@ -12,6 +12,7 @@
     "ask-sdk-core": "^2.6.0",
     "ask-sdk-model": "^1.18.0",
     "aws-sdk": "^2.326.0",
-    "axios": "^0.20.0"
+    "axios": "^0.20.0",
+    "dotenv": "^8.2.0"
   }
 }

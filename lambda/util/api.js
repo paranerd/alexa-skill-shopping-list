@@ -1,12 +1,8 @@
 const helpers = require('./helpers');
-const configHelper = require('./config-helper');
 
-// Load config
-const config = new configHelper();
-
-const API_URL = config.get('apiUrl');
+const API_URL = process.env.API_URL;
 const HEADERS = {
-    'Authorization': 'Bearer ' + config.get('apiToken'),
+    'Authorization': 'Bearer ' + process.env.API_TOKEN,
     'Content-Type': 'application/json'
 };
 

@@ -21,14 +21,31 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 
 7. Set up config
 
-    Rename config.sample.json to config.json
+    Rename `lambda/config/env.sample` to `lambda/config/env`
 
-    Enter API URL and API service token 
+    Fill in API_URL and API_TOKEN in `lambda/config/env`
 
-8. Deploy
+    You may also set those in the AWS UI as "Environment Variables"
+
+8. Install dependencies
+
+    ```
+    cd lambda/
+    ```
+
+    ```
+    npm i
+    ```
+
+9. Deploy
     ```
     ask deploy
     ```
+
+### Debugging
+```
+ask dialog --locale de-DE
+```
 
 ## Language support
 - German

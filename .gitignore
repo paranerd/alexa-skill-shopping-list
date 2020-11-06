@@ -1,6 +1,6 @@
 infrastructure/
 node_modules/
-lambda/config/config.json
+lambda/config/env
 skill-package/skill.json
 package-lock.json
 .DS_Store
