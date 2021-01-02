@@ -29,7 +29,8 @@
                     ],
                     "samples": [
                         "{item}",
-                        "füge {item} hinzu"
+                        "füge {item} hinzu",
+                        "setze {item} auf meine einkaufsliste"
                     ]
                 },
                 {
