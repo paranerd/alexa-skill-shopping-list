@@ -3,23 +3,23 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 
 ## Prerequisites
 1. You will need an Amazon Developer account as well as an AWS account
-2. Clone the repository
-3. [Create AWS credentials](https://developer.amazon.com/de-DE/docs/alexa/smapi/manage-credentials-with-ask-cli.html#create-aws-credentials)
-4. Install the Alexa Skill Kit
+1. Clone the repository
+1. [Create AWS credentials](https://developer.amazon.com/de-DE/docs/alexa/smapi/manage-credentials-with-ask-cli.html#create-aws-credentials)
+1. Install the Alexa Skill Kit
     ```
     npm i -g ask-cli
     ```
-5. Configure the Alexa Skill Kit
+1. Configure the Alexa Skill Kit
     ```
     ask configure
     ```
 
-6. Set the correct region (i.e. region=eu-west-1)
+1. Set the correct region (i.e. region=eu-west-1)
     ```
     nano ~/.aws/credentials
     ```
 
-7. Set up config
+1. Set up config
 
     Rename `lambda/config/env.sample` to `lambda/config/env`
 
@@ -27,7 +27,11 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 
     You may also set those in the AWS UI as "Environment Variables"
 
-8. Install dependencies
+1. Update `skill.json`
+
+    Rename `skill-package/skill.sample.json` to `skill.json`
+
+1. Install dependencies
 
     ```
     cd lambda/
@@ -37,7 +41,7 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
     npm i
     ```
 
-9. Deploy
+1. Deploy
     ```
     ask deploy
     ```

@@ -1,30 +1,26 @@
 {
     "manifest": {
-      "publishingInformation": {
-        "locales": {
-          "de-DE": {
-            "summary": "Custom shopping list",
-            "examplePhrases": [
-              "Alexa öffne Meine Einkaufsliste",
-              "hallo",
-              "hilfe"
-            ],
-            "name": "Meine Einkaufsliste",
-            "description": "Custom shopping list"
-          }
+        "publishingInformation": {
+            "locales": {
+                "de-DE": {
+                    "summary": "Selbst gehostete Einkaufsliste",
+                    "examplePhrases": [
+                        "Alexa öffne Meine Einkaufsliste",
+                        "hallo",
+                        "hilfe"
+                    ],
+                    "name": "Meine Einkaufsliste",
+                    "description": "Custom shopping list"
+                }
+            },
+            "isAvailableWorldwide": true,
+            "testingInstructions": "Sample Testing Instructions.",
+            "category": "SHOPPING",
+            "distributionCountries": []
         },
-        "isAvailableWorldwide": true,
-        "testingInstructions": "Sample Testing Instructions.",
-        "category": "SHOPPING",
-        "distributionCountries": []
-      },
-      "apis": {
-        "custom": {
-          "endpoint": {
-            "uri": ""
-          }
-        }
-      },
-      "manifestVersion": "1.0"
+        "apis": {
+            "custom": {}
+        },
+        "manifestVersion": "1.0"
     }
-  }
+}
