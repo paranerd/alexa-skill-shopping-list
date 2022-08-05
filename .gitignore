@@ -2,6 +2,6 @@ infrastructure/
 node_modules/
 lambda/config/env
 skill-package/skill.json
-package-lock.json
 .DS_Store
 .ask
+.env
