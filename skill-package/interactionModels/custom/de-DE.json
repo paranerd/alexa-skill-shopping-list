@@ -3,48 +3,56 @@
         "languageModel": {
             "invocationName": "meine einkaufsliste",
             "intents": [
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.NoIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AddItemIntent",
-                    "slots": [
-                        {
-                            "name": "item",
-                            "type": "AMAZON.Food"
-                        }
-                    ],
-                    "samples": [
-                        "{item}",
-                        "füge {item} hinzu",
-                        "setze {item} auf meine einkaufsliste"
-                    ]
-                },
-                {
-                    "name": "ListItemsIntent",
-                    "samples": [
-                        "was steht auf der liste",
-                        "was steht auf meiner liste",
-                        "was steht drauf"
-                    ]
-                },
-                {
-                    "name": "AMAZON.NavigateHomeIntent",
-                    "samples": []
-                }
+              {
+                "name": "AMAZON.CancelIntent",
+                "samples": []
+              },
+              {
+                "name": "AMAZON.HelpIntent",
+                "samples": []
+              },
+              {
+                "name": "AMAZON.StopIntent",
+                "samples": []
+              },
+              {
+                "name": "AMAZON.NoIntent",
+                "samples": []
+              },
+              {
+                "name": "AddItemIntent",
+                "slots": [
+                  {
+                    "name": "item",
+                    "type": "AMAZON.Food"
+                  }
+                ],
+                "samples": [
+                  "{item}",
+                  "füge {item} hinzu",
+                  "setze {item} auf meine einkaufsliste"
+                ]
+              },
+              {
+                "name": "ListItemsIntent",
+                "samples": [
+                  "was steht auf der liste",
+                  "was steht auf meiner liste",
+                  "was steht drauf"
+                ]
+              },
+              {
+                "name": "ClearCompletedItemsIntent",
+                "samples": [
+                  "lösche alle fertigen",
+                  "lösche alle erledigten",
+                  "liste aufräumen"
+                ]
+              },
+              {
+                "name": "AMAZON.NavigateHomeIntent",
+                "samples": []
+              }
             ],
             "types": []
         }
