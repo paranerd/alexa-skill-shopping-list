@@ -23,7 +23,7 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 
     Rename `lambda/.env.sample` to `lambda/.env`
 
-    Fill in API_URL and API_TOKEN in `lambda/.env`
+    Fill in `lambda/.env`
 
     OR
 
@@ -61,6 +61,10 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 ```
 ask dialog --locale de-DE
 ```
+
+## Backend support
+- [Home Assistant Shopping List](https://www.home-assistant.io/integrations/shopping_list/)
+- [To-Do-List]/https://github.com/paranerd/to-do-list)
 
 ## Language support
 - German

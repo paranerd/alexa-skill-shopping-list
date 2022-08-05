@@ -4,11 +4,11 @@ require('dotenv').config();
 let api;
 const maxNoOfItemsReported = 5;
 
-if (process.env.PLUGIN === 'hass') {
-  const HomeAssistant = require('./plugins/home-assistant');
+if (process.env.BACKEND === 'hass') {
+  const HomeAssistant = require('./backends/home-assistant');
   api = new HomeAssistant();
 } else {
-  const ToDoList = require('./plugins/to-do-list');
+  const ToDoList = require('./backends/to-do-list');
   api = new ToDoList();
 }
 
