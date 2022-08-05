@@ -21,9 +21,11 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
 
 1. Set up config
 
-    Rename `lambda/config/env.sample` to `lambda/config/env`
+    Rename `lambda/.env.sample` to `lambda/.env`
 
-    Fill in API_URL and API_TOKEN in `lambda/config/env`
+    Fill in API_URL and API_TOKEN in `lambda/.env`
+
+    OR
 
     You may also set those in the AWS UI as "Environment Variables"
 
@@ -41,12 +43,21 @@ This is the Alexa Skill companion for the [To-Do-List Server](https://github.com
     npm i
     ```
 
-1. Deploy
+## Deployment
+### New skill
+1. Run
     ```
     ask deploy
     ```
 
-### Debugging
+### Existing skill
+1. Add the `/.ask/ask-states.json` you saved from your last deployment
+1. Run
+    ```
+    ask deploy
+    ```
+
+## Debugging
 ```
 ask dialog --locale de-DE
 ```
