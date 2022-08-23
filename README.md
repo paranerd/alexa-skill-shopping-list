@@ -1,5 +1,5 @@
-# Alexa Skill for the To-Do-List
-This is the Alexa Skill companion for the [To-Do-List Server](https://github.com/paranerd/to-do-list).
+# Alexa Shopping List Companion
+This is an extensible Alexa Companion Skill.
 
 ## Prerequisites
 1. You will need an Amazon Developer account as well as an AWS account
@@ -64,7 +64,7 @@ ask dialog --locale de-DE
 
 ## Backend support
 - [Home Assistant Shopping List](https://www.home-assistant.io/integrations/shopping_list/)
-- [To-Do-List]/https://github.com/paranerd/to-do-list)
+- [To-Do-List](https://github.com/paranerd/to-do-list)
 
 ## Language support
 - German
