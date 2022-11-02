@@ -43,6 +43,14 @@ This is an extensible Alexa Companion Skill.
     npm i
     ```
 
+## Configuration
+
+- **API_URL**: URL to your backend API
+
+- **API_TOKEN**: API token to authenticate against the API
+
+- **BACKEND**: The backend to connect to. Supported: 'hass' and 'todo'
+
 ## Deployment
 ### New skill
 1. Run
