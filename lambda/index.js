@@ -22,7 +22,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     wasOpened = true;
-    const speakOutput = 'Einkaufsliste, was möchstest du tun?';
+    const speakOutput = 'Hier ist deine Einkaufsliste, was möchstest du tun?';
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
@@ -42,9 +42,8 @@ const AddItemIntentHandler = {
     let speakOutput;
 
     // Get item name from request
-    const item = Alexa.getSlotValue(handlerInput.requestEnvelope, 'item');
-
-
+    let item = Alexa.getSlotValue(handlerInput.requestEnvelope, 'item');
+    item = item.charAt(0).toUpperCase() + item.slice(1); // Make first letter uppercase
 
     try {
       // Add item to list
