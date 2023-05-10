@@ -97,9 +97,12 @@ const ListItemsIntentHandler = {
       const list = items.map((item) => item.name);
 
       // Output
-      speakOutput = `Hier sind deine letzten ${noOfItemsReported}: ${itemsToReport.join(
-        ', '
-      )}`;
+      if(noOfItemsReported == 1) {
+        speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
+      }else {
+        speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
+      }
+      
     } catch (err) {
       speakOutput = 'Sorry, da ist etwas schief gelaufen';
       console.error(err);
