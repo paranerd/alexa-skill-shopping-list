@@ -99,7 +99,8 @@ const ListItemsIntentHandler = {
       if(noOfItemsReported == 1) {
         speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
       }else {
-        speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
+        const itemList = itemsToReport.slice(0, -1).join(', ') + ' und ' + itemsToReport.slice(-1);
+        speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemList}`;
       }
       
     } catch (err) {
