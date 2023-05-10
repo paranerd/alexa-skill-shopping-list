@@ -22,7 +22,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     wasOpened = true;
-    const speakOutput = 'Hier ist deine Einkaufsliste. Was möchstest du tun?';
+    const speakOutput = 'Einkaufsliste, was möchstest du tun?';
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
@@ -43,6 +43,8 @@ const AddItemIntentHandler = {
 
     // Get item name from request
     const item = Alexa.getSlotValue(handlerInput.requestEnvelope, 'item');
+
+
 
     try {
       // Add item to list
@@ -95,9 +97,7 @@ const ListItemsIntentHandler = {
       const list = items.map((item) => item.name);
 
       // Output
-      speakOutput = `Du hast ${
-        items.length
-      } einträge. Hier sind deine letzten ${noOfItemsReported}: ${itemsToReport.join(
+      speakOutput = `Hier sind deine letzten ${noOfItemsReported}: ${itemsToReport.join(
         ', '
       )}`;
     } catch (err) {
