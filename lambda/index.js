@@ -96,11 +96,15 @@ const ListItemsIntentHandler = {
       const list = items.map((item) => item.name);
 
       // Output
-      if(noOfItemsReported == 1) {
+      if (noOfItemsReported == 1) {
         speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
-      }else {
+      } else {
         const itemList = itemsToReport.slice(0, -1).join(', ') + ' und ' + itemsToReport.slice(-1);
-        speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemList}`;
+        if (items.length > maxNoOfItemsReported) {
+          speakOutput = `Es sind ${items.length} Artikel auf deiner Liste. Die letzten ${noOfItemsReported} sind: ${itemList}`;
+        } else {
+          speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemList}`;
+        }
       }
       
     } catch (err) {
