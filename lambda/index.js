@@ -108,12 +108,14 @@ const ListItemsIntentHandler = {
       console.error(err);
     }
 
-    return (
-      handlerInput.responseBuilder
-        .speak(speakOutput)
-        //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-        .getResponse()
-    );
+    let rb = handlerInput.responseBuilder.speak(speakOutput);
+
+    // Ask for more if opened
+    if (wasOpened) {
+      rb = rb.reprompt('Noch etwas?');
+    }
+
+    return rb.getResponse();
   },
 };
 
