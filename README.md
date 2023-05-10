@@ -13,6 +13,15 @@ This is an extensible Alexa Companion Skill.
     ```
     ask configure
     ```
+    You will need to associate an AWS Profile with ASK CLI.
+    When asked for access keys:
+    1. Go to the IAM user list and click on the previosly created user in step 2
+    2. Click on the security credentials tab
+    3. Scroll down to the access keys section and create a new key
+    4. After finish, copy the access keys to ask cli
+
+    If you have trouble getting it to work you can also try it by [using your main aws account](https://stackoverflow.com/a/37947853).
+
 
 1. Set the correct region (i.e. region=eu-west-1)
     ```
@@ -45,7 +54,7 @@ This is an extensible Alexa Companion Skill.
 
 ## Configuration
 
-- **API_URL**: URL to your backend API
+- **API_URL**: URL to your backend API (E.g. for HA: https://your-public-ha.domain/api)
 
 - **API_TOKEN**: API token to authenticate against the API
 
