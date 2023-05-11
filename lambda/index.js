@@ -22,7 +22,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     wasOpened = true;
-    const speakOutput = 'Hier ist deine Einkaufsliste. Was möchstest du tun?';
+    const speakOutput = 'Hier ist deine Einkaufsliste, was möchstest du tun?';
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
@@ -42,7 +42,8 @@ const AddItemIntentHandler = {
     let speakOutput;
 
     // Get item name from request
-    const item = Alexa.getSlotValue(handlerInput.requestEnvelope, 'item');
+    let item = Alexa.getSlotValue(handlerInput.requestEnvelope, 'item');
+    item = item.charAt(0).toUpperCase() + item.slice(1); // Make first letter uppercase
 
     try {
       // Add item to list
@@ -95,22 +96,30 @@ const ListItemsIntentHandler = {
       const list = items.map((item) => item.name);
 
       // Output
-      speakOutput = `Du hast ${
-        items.length
-      } einträge. Hier sind deine letzten ${noOfItemsReported}: ${itemsToReport.join(
-        ', '
-      )}`;
+      if (noOfItemsReported == 1) {
+        speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
+      } else {
+        const itemList = itemsToReport.slice(0, -1).join(', ') + ' und ' + itemsToReport.slice(-1);
+        if (items.length > maxNoOfItemsReported) {
+          speakOutput = `Es sind ${items.length} Artikel auf deiner Liste. Die letzten ${noOfItemsReported} sind: ${itemList}`;
+        } else {
+          speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemList}`;
+        }
+      }
+      
     } catch (err) {
       speakOutput = 'Sorry, da ist etwas schief gelaufen';
       console.error(err);
     }
 
-    return (
-      handlerInput.responseBuilder
-        .speak(speakOutput)
-        //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-        .getResponse()
-    );
+    let rb = handlerInput.responseBuilder.speak(speakOutput);
+
+    // Ask for more if opened
+    if (wasOpened) {
+      rb = rb.reprompt('Noch etwas?');
+    }
+
+    return rb.getResponse();
   },
 };
 
