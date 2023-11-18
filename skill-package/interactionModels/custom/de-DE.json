@@ -29,7 +29,10 @@
                 ],
                 "samples": [
                   "{item}",
+                  "mach {item} drauf",
                   "füge {item} hinzu",
+                  "füge {item} zur liste hinzu",
+                  "mach {item} auf meine einkaufsliste",
                   "setze {item} auf meine einkaufsliste"
                 ]
               },
@@ -46,7 +49,8 @@
                 "samples": [
                   "lösche alle fertigen",
                   "lösche alle erledigten",
-                  "liste aufräumen"
+                  "liste aufräumen",
+                  "räum die liste auf"
                 ]
               },
               {
