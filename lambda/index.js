@@ -92,9 +92,6 @@ const ListItemsIntentHandler = {
         .slice(0, maxNoOfItemsReported)
         .map((item) => item.name);
 
-      // Only get the names
-      const list = items.map((item) => item.name);
-
       // Output
       if (noOfItemsReported == 1) {
         speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
