@@ -82,25 +82,28 @@ const ListItemsIntentHandler = {
     try {
       // Get all items
       const items = await api.list();
+      const totalItemsAmount = items.length;
 
-      const noOfItemsReported =
-        items.length < maxNoOfItemsReported
-          ? items.length
-          : maxNoOfItemsReported;
-
-      const itemsToReport = items
-        .slice(0, maxNoOfItemsReported)
-        .map((item) => item.name);
+      const itemsToReportAmount =
+          totalItemsAmount < maxNoOfItemsReported
+              ? totalItemsAmount : maxNoOfItemsReported;
+      const itemsToReport = items.slice(0, itemsToReportAmount).map((item) => item.name);
 
       // Output
-      if (noOfItemsReported == 1) {
-        speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport.join(', ')}`;
+      if (totalItemsAmount === 0) {
+        // List is empty
+        speakOutput = `Die Einkaufsliste ist leer.`;
+      } else if (totalItemsAmount === 1) {
+        // List has one item
+        speakOutput = `Es ist ein Artikel auf deiner Liste: ${itemsToReport[0]}`;
       } else {
-        const itemList = itemsToReport.slice(0, -1).join(', ') + ' und ' + itemsToReport.slice(-1);
-        if (items.length > maxNoOfItemsReported) {
-          speakOutput = `Es sind ${items.length} Artikel auf deiner Liste. Die letzten ${noOfItemsReported} sind: ${itemList}`;
+        const itemsListed = itemsToReport.slice(0, -1).join(', ') + ' und ' + itemsToReport.slice(-1);
+        if (totalItemsAmount <= maxNoOfItemsReported) {
+          // List all items on the list (amount below maxNoOfItemsReported)
+          speakOutput = `Es sind ${totalItemsAmount} Artikel auf deiner Liste: ${itemsListed}`;
         } else {
-          speakOutput = `Es sind ${noOfItemsReported} Artikel auf deiner Liste: ${itemList}`;
+          // More items than maxNoOfItemsReported are on the list. Change text and only list the last x ones.
+          speakOutput = `Es sind ${totalItemsAmount} Artikel auf deiner Liste. Die letzten ${itemsToReportAmount} sind: ${itemsListed}`;
         }
       }
       
