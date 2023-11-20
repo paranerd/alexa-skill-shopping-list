@@ -18,7 +18,7 @@ This is an extensible Alexa Companion Skill.
     ```
     You will need to associate an AWS Profile with ASK CLI.
     When asked for access keys:
-    1. Go to the IAM user list and click on the previosly created user in step 2
+    1. Go to the IAM user list and click on the user you just created
     2. Click on the security credentials tab
     3. Scroll down to the access keys section and create a new key
     4. After finish, copy the access keys to ask cli
